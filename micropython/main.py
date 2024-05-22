@@ -18,6 +18,7 @@ timer = Timer()
 
 uart0 = UART(0, baudrate=57600, tx=Pin(0), rx=Pin(1))
 
+adc3_value = ADC(29)
 adc2_value = ADC(28)
 adc1_value = ADC(27)
 adc0_value = ADC(26)
@@ -32,6 +33,7 @@ def sendFloats(timer):
         msgs.append(mavobj.named_value_float_encode(time.ticks_ms(), "ADC0", adc0_value.read_u16() * conversion_factor))
         msgs.append(mavobj.named_value_float_encode(time.ticks_ms(), "ADC1", adc1_value.read_u16() * conversion_factor))
         msgs.append(mavobj.named_value_float_encode(time.ticks_ms(), "ADC2", adc2_value.read_u16() * conversion_factor))
+        msgs.append(mavobj.named_value_float_encode(time.ticks_ms(), "ADC3", adc3_value.read_u16() * conversion_factor))
         for msg in msgs:
             uart0.write(msg.pack(mavobj))
         print("Sent at {0}".format(time.ticks_ms()))
