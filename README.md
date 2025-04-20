@@ -29,6 +29,11 @@ make
 
 Then copy the ``./c/build/mavlink_periph.uf2`` file to the RP2040.
 
+## C (VSCode)
+
+The ``c_vscode`` folder contains a similar example for above, using the [Pico SDK VSCode extension](https://www.raspberrypi.com/news/get-started-with-raspberry-pi-pico-series-and-vs-code/).
+
+
 ## Python
 The [Micropython](https://micropython.org/) framework is required to be installed on the RP2040, in order to run the code.
 
